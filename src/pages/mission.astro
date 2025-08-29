@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Mission">
+    <main>
+        <Navbar />
+    </main>
+</Layout>
+
+<style>
+    main {
+		height: 100vh;
+		background-image: url(../assets/bg2.jpg);
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+
+</style>

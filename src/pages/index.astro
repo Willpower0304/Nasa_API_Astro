@@ -1,24 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Logo from '../assets/logo.png';
+import Navbar from '../components/Navbar.astro';
 import Search from '../assets/search.svg';
 ---
 
 <Layout title="Home">
 	<main>
-		<nav>
-			<div class="nav_izquierda">
-				<a href="/">
-					<img src={Logo.src} alt="Logo" />
-				</a>
-			</div>
-			<div class="nav_derecha">
-				<a href="/">Home</a>
-				<a href="/mission">Mission</a>
-				<a href="/about">Explorer</a>
-				<a href="/contact">About</a>
-			</div>
-		</nav>
+		<Navbar />
 		<div class="main_content">
 			<h1>Explore The Galaxy</h1>
 			<div class="input_container">
@@ -37,16 +25,6 @@ import Search from '../assets/search.svg';
 </Layout>
 
 <style>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-	*::before,
-	*::after {
-		box-sizing: border-box;
-	}
-
 	main {
 		height: 100vh;
 		background-image: url(../assets/bg.jpg);
@@ -55,34 +33,6 @@ import Search from '../assets/search.svg';
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-	}
-
-	nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1rem 3rem;
-	}
-
-	.nav_izquierda img {
-		width: 100px;
-		height: auto;
-	}
-
-	.nav_derecha a {
-		color: white;
-		text-decoration: none;
-		margin-left: 4rem;
-		font-size: 1.3rem;
-		transition: color 0.3s;
-		padding: 0.5rem 1rem;
-		border-radius: 20px;
-		transition: .3s ease-in-out, box-shadow .3s ease-in-out;
-	}
-
-	.nav_derecha a:hover {
-		color: #000000;
-    	box-shadow: inset 200px 0 0 0 #ffffff;;
 	}
 
 	.main_content {
@@ -158,14 +108,6 @@ import Search from '../assets/search.svg';
 	}
 
 	@media (max-width: 1024px) {
-		nav {
-			padding: 1rem 1.5rem;
-		}
-		.nav_derecha a {
-			margin-left: 2rem;
-			font-size: 1.1rem;
-			padding: 0.4rem 0.7rem;
-		}
 		.main_content {
 			margin: 5rem 0rem;
 		}
@@ -179,32 +121,6 @@ import Search from '../assets/search.svg';
 	}
 
 	@media (max-width: 700px) {
-		nav {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 1rem;
-			padding: 1rem 1rem;
-		}
-		.nav_izquierda {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-		}
-		.nav_izquierda img {
-			width: 70px;
-		}
-		.nav_derecha {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			gap: 0.5rem;
-		}
-		.nav_derecha a {
-			margin-left: 0;
-			font-size: 1rem;
-			padding: 0.3rem 0.5rem;
-		}
 		.main_content {
 			margin: 3rem 0rem;
 			padding: 0 0.5rem;
@@ -256,3 +172,4 @@ import Search from '../assets/search.svg';
 		}
 	}
 </style>
+		
