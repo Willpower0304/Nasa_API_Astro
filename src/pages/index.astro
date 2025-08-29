@@ -1,11 +1,156 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Logo from '../assets/logo.png';
+import Search from '../assets/search.svg';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+	<main>
+		<nav>
+			<div class="nav_izquierda">
+				<a href="/">
+					<img src={Logo.src} alt="Logo" />
+				</a>
+			</div>
+			<div class="nav_derecha">
+				<a href="/">Home</a>
+				<a href="/mission">Mission</a>
+				<a href="/about">Explorer</a>
+				<a href="/contact">About</a>
+			</div>
+		</nav>
+		<div class="main_content">
+			<h1>Explore The Galaxy</h1>
+			<div class="input_container">
+				<input type="text" placeholder="Search..." /
+				>
+				<img src={Search.src} alt="serach icon">
+			</div>
+			<p>!Welcome to the NASA API Explorer! Discover a vast array of data and imagery from NASA's extensive collection, including the Astronomy Picture of the Day, Mars Rover photos, and much more. Use our easy-to-navigate interface to search and access fascinating information about our universe.</p>
+		</div>
+		<footer>
+			<p>2025 | Nasa Api Search</p>
+			<p>Free Use Resources</p>
+			<p>Created by William Espinoza</p>
+		</footer>
+	</main>
 </Layout>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	main {
+		height: 100vh;
+		background-image: url(../assets/bg.jpg);
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 3rem;
+	}
+
+	.nav_izquierda img {
+		width: 100px;
+		height: auto;
+	}
+
+	.nav_derecha a {
+		color: white;
+		text-decoration: none;
+		margin-left: 6rem;
+		font-size: 1.3rem;
+		transition: color 0.3s;
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		transition: .3s ease-in-out, box-shadow .3s ease-in-out;
+	}
+
+	.nav_derecha a:hover {
+		color: #000000;
+    	box-shadow: inset 200px 0 0 0 #ffffff;;
+	}
+
+	.main_content {
+		text-align: center;
+		color: white;
+		margin-top: 8rem;
+		padding: 0 2rem;
+
+	}
+
+	.main_content h1 {
+		font-family: 'Roboto-Bold', sans-serif;
+		font-size: 3.8rem;
+		margin-bottom: 1.3rem;
+	}
+
+	.input_container {
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+	}
+
+	.input_container input {
+		padding: 1rem ;
+		font-size: 1.2rem;
+		border: none;
+		border-radius: 30px;
+		width: 400px;
+		outline: none;
+		background-color: rgba(255, 255, 255, 0.1);
+		color: rgb(189, 189, 189);
+		transition: 0.3s all ease-in-out;
+	}
+
+	.input_container input:focus {
+		background-color: rgba(255, 255, 255, 0.144);
+	}
+
+	.input_container input::placeholder {
+		color: #999;
+		
+	}
+	
+	.input_container img {
+		position: absolute;
+		right: 0.7rem;
+		width: 30px;
+		height: 30px;
+	} 
+
+	.main_content p {
+		font-size: 1.1rem;
+		line-height: 1.3;
+		margin-top: 1.3rem;
+		max-width: 70ch;
+		margin-left: auto;
+		margin-right: auto;
+		color: #adadad;
+	}
+
+	footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 3rem;
+		color: #727272;
+		font-style: italic;
+		flex-shrink: 0;
+		margin-top: auto;
+	}
+</style>
