@@ -5,6 +5,7 @@ import Facebook from '../assets/f.svg';
 import Instagram from '../assets/i.svg';
 import Twitter from '../assets/x.svg';
 import Youtube from '../assets/y.svg';
+import RightArrow from '../assets/right.svg';
 ---
 
 <footer>
@@ -16,7 +17,7 @@ import Youtube from '../assets/y.svg';
             <h3>National Aeronautics and Space Administration</h3>
             <p>NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.</p>
             <a href="#">About NASA's Mission</a>
-            <a href="#" class="join">Join Us</a>
+            <a href="#" class="join">Join Us <img src={RightArrow.src} alt="right icon"></a>
         </div>
         <div class="top_middle_middle">
             <div class="list_left">
@@ -163,7 +164,20 @@ import Youtube from '../assets/y.svg';
         font-family: 'Roboto-Bold', sans-serif;
         margin-top: 1.5rem;
         text-decoration: none;
+        display: inline-flex;
+		align-items: center;
+		vertical-align: middle;
     }
+
+    .top_midldle_left img {
+		margin-left: 1rem;
+		padding: 0.15rem;
+		background-color: rgb(255, 51, 0);
+		border-radius: 50%;
+		width: 13px;
+		display: inline-block;
+		vertical-align: middle;
+	}
 
     .top_middle {
         display: flex;
@@ -291,46 +305,49 @@ import Youtube from '../assets/y.svg';
     @media (max-width: 900px) {
         .top_middle {
             flex-direction: column;
-            gap: 1.5rem;
-            align-items: flex-start;
+            gap: 2rem;
+            align-items: stretch;
+        }
+        .top_midldle_left,
+        .top_middle_middle,
+        .top_Middle_right {
+            width: 100%;
+            min-width: 0;
         }
         .top_middle_middle {
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 1.5rem;
+        }
+        .top_middle_middle .list_left,
+        .top_middle_middle .list_middle,
+        .top_middle_middle .list_right {
+            gap: 0.5rem;
         }
         .top_Middle_right {
             max-width: 100%;
+            margin-top: 1.5rem;
         }
-    }
-
-    @media (max-width: 700px) {
         .top_footer img {
-            width: 60px;
-        }
-        .top_middle {
-            gap: 1rem;
-            padding: 0;
+            width: 70px;
         }
         .top_midldle_left h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
         .top_midldle_left p {
-            font-size: 0.8rem;
-        }
-        .top_middle_middle {
-            gap: 0.5rem;
+            font-size: 0.85rem;
         }
         .top_Middle_right .social_media img {
-            width: 18px;
-            padding: 0.3rem;
+            width: 20px;
+            padding: 0.4rem;
         }
         .top_bottom .list_top_bottom {
-            gap: 1rem;
+            gap: 1.2rem;
         }
         .top_bottom p {
-            margin-right: 2rem;
-            font-size: 0.8rem;
+            margin-right: 2.5rem;
+            font-size: 0.85rem;
         }
     }
 
@@ -351,6 +368,15 @@ import Youtube from '../assets/y.svg';
         .top_midldle_left p {
             font-size: 0.7rem;
         }
+        .top_midldle_left img {
+            width: 10px;
+            padding: 0.2rem;
+            margin-left: 0.8rem;
+        }
+        .top_middle_middle {
+            margin-top: 2rem;
+        }
+
         .top_Middle_right p {
             font-size: 0.8rem;
         }
