@@ -1,0 +1,369 @@
+---
+import Logo from '../assets/logo.png';
+
+import Facebook from '../assets/f.svg';
+import Instagram from '../assets/i.svg';
+import Twitter from '../assets/x.svg';
+import Youtube from '../assets/y.svg';
+---
+
+<footer>
+    <div class="top_footer">
+        <img src={Logo.src} alt="Logo" />
+    </div>
+    <div class="top_middle">
+        <div class="top_midldle_left">
+            <h3>National Aeronautics and Space Administration</h3>
+            <p>NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.</p>
+            <a href="#">About NASA's Mission</a>
+            <a href="#" class="join">Join Us</a>
+        </div>
+        <div class="top_middle_middle">
+            <div class="list_left">
+                <ul>
+                <a href="#">Home</a>
+                </ul>
+                <ul>
+                    <a href="#">News & Events</a>
+                </ul>
+                <ul>
+                    <a href="#">Multimedia</a>
+                </ul>
+                <ul>
+                    <a href="#">NASA+</a>
+                </ul>
+                <ul>
+                    <a href="#">Missions</a>
+                </ul>
+            </div>
+
+            <div class="list_middle">
+                <ul>
+                    <a href="#">Humans in Space</a>
+                </ul>
+                <ul>
+                    <a href="#">Earth</a>
+                </ul>
+                <ul>
+                    <a href="#">The Solar System</a>
+                </ul>
+                <ul>
+                    <a href="#">The Universe</a>
+                </ul>
+                <ul>
+                    <a href="#">Science</a>
+                </ul>
+            </div>
+
+            <div class="list_right">
+                <ul>
+                    <a href="#">Aeronautics</a>
+                </ul>
+                <ul>
+                    <a href="#">Technology</a>
+                </ul>
+                <ul>
+                    <a href="#">Learning Resources</a>
+                </ul>
+                <ul>
+                    <a href="#">About NASA</a>
+                </ul>
+                <ul>
+                    <a href="#">NASA en Español</a>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="top_Middle_right">
+            <p>Follow NASA</p>
+            <div class="social_media">
+                <a href="#"><img src={Facebook.src} alt="Facebook icon"></a>
+                <a href="#"><img src={Instagram.src} alt="Instagram icon"></a>
+                <a href="#"><img src={Twitter.src} alt="Twitter icon"></a>
+                <a href="#"><img src={Youtube.src} alt="Youtube icon"></a>
+            </div>
+                <a href="#">More NASA Social Accounts</a>
+                <a href="#">NASA Newsletters</a>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="top_bottom">
+        <div class="list_top_bottom">
+            <a href="#">Sitemap</a>
+            <a href="#">For Media</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">FOIA</a>
+            <a href="#">No FEAR Act</a>
+            <a href="#">Office of the IG</a>
+            <a href="#">Budget & Annual Reports</a>
+            <a href="#">Agency Financial Reports</a>
+            <a href="#">Contact NASA</a>
+            <a href="#">Accessibility</a>
+        </div>
+            <p>2025 | Nasa Api Search</p>
+            <p>Free Use Resources</p>
+            <p>Created by William Espinoza</p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        background-color: #141414;
+        color: #fff;
+        padding: 1.5rem;
+    }
+
+    .top_footer img{
+        margin: 2rem 0;
+    }
+
+    .top_footer img{
+        width: 84px;   
+    }
+
+    .top_midldle_left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top_midldle_left h3 {
+        font-family: 'Roboto-Bold', sans-serif;
+        max-width: 30ch;
+        font-size: 1.4rem;
+        margin: 0rem;
+    }
+
+    .top_midldle_left p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #b3b3b3;
+        max-width: 43ch;
+    }
+
+    .top_midldle_left a {
+        font-size: 0.9rem;
+        color: white;
+        text-decoration: none;
+        margin-top: 0.5rem;
+        transition: color 0.3s;
+        max-width: fit-content;
+    }
+
+    .top_midldle_left a:hover {
+        text-decoration: underline dotted;
+    }
+
+    .top_midldle_left a.join {
+        font-size: 1.2rem;
+        font-family: 'Roboto-Bold', sans-serif;
+        margin-top: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top_middle {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10rem;
+        margin-bottom: 2rem;
+    }
+
+    .top_middle_middle {
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+    }
+
+    .top_middle_middle .list_left,
+    .top_middle_middle .list_middle,
+    .top_middle_middle .list_right {
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+    }
+
+    .top_middle_middle .list_left a,
+    .top_middle_middle .list_middle a,
+    .top_middle_middle .list_right a {
+        font-size: 0.9rem;
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s;
+        max-width: fit-content;
+    }
+
+    .top_middle_middle .list_left a:hover,
+    .top_middle_middle .list_middle a:hover,
+    .top_middle_middle .list_right a:hover {
+        text-decoration: underline dotted;
+    }
+
+    .top_middle_middle ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem;
+    }
+
+    .top_Middle_right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        max-width: fit-content;
+    }
+
+    .top_Middle_right p {
+        font-size: 1rem;
+        color: #b3b3b3;
+        margin: 0 0 0.5rem;
+        font-family: 'Roboto-Bold', sans-serif;
+    }
+
+    .top_Middle_right .social_media {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .top_Middle_right .social_media img {
+        background-color: #2e2e32;
+        border-radius: 100%;
+        width: 22px;
+        padding: 0.5rem;
+    }
+
+    .top_Middle_right a {
+        font-size: 0.9rem;
+        color: white;
+        text-decoration: none;
+        margin-top: 1rem;
+        transition: color 0.3s;
+        max-width: fit-content;
+    }
+
+    .top_Middle_right a:hover {
+        text-decoration: underline dotted;
+    }   
+
+    hr {
+        border: 0;
+        border-top: 1px solid #58585b;
+        margin: 1.5rem 0;
+    }
+
+    .top_bottom .list_top_bottom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .top_bottom .list_top_bottom a {
+        font-size: 0.9rem;
+        color: #b3b3b3;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .top_bottom .list_top_bottom a:hover {
+        text-decoration: underline dotted;
+    }
+
+    .top_bottom p {
+        display: inline-block;
+        margin-right: 5rem;
+        font-size: 0.9rem;
+        color: #b3b3b3;
+    }
+
+    @media (max-width: 1200px) {
+        .top_middle {
+            gap: 3rem;
+        }
+        .top_middle_middle {
+            gap: 2rem;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .top_middle {
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        .top_middle_middle {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .top_Middle_right {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .top_footer img {
+            width: 60px;
+        }
+        .top_middle {
+            gap: 1rem;
+            padding: 0;
+        }
+        .top_midldle_left h3 {
+            font-size: 1.1rem;
+        }
+        .top_midldle_left p {
+            font-size: 0.8rem;
+        }
+        .top_middle_middle {
+            gap: 0.5rem;
+        }
+        .top_Middle_right .social_media img {
+            width: 18px;
+            padding: 0.3rem;
+        }
+        .top_bottom .list_top_bottom {
+            gap: 1rem;
+        }
+        .top_bottom p {
+            margin-right: 2rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 500px) {
+        footer {
+            padding: 0.7rem;
+        }
+        .top_footer img {
+            width: 40px;
+            margin: 1rem 0;
+        }
+        .top_middle {
+            gap: 0.5rem;
+        }
+        .top_midldle_left h3 {
+            font-size: 0.95rem;
+        }
+        .top_midldle_left p {
+            font-size: 0.7rem;
+        }
+        .top_Middle_right p {
+            font-size: 0.8rem;
+        }
+        .top_Middle_right a {
+            font-size: 0.8rem;
+        }
+        .top_bottom .list_top_bottom {
+            gap: 0.5rem;
+            font-size: 0.7rem;
+        }
+        .top_bottom p {
+            margin-right: 0.7rem;
+            font-size: 0.7rem;
+        }
+    }
+</style>

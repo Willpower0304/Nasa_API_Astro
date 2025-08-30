@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
 const API_KEY = import.meta.env.NASA_API_KEY || "DEMO_KEY";
 const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=4`);
@@ -41,6 +42,8 @@ const apods = await res.json();
 			<a href="">Learn More</a>
 		</div>
 
+		<Footer />
+
     </main>
 </Layout>
 
@@ -61,6 +64,7 @@ const apods = await res.json();
 		flex: 1 0 auto;
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		margin: 7rem 4rem;
 	}
 
@@ -215,17 +219,128 @@ const apods = await res.json();
 
 
 
+	@media (max-width: 1200px) {
+		.title_section {
+			margin: 3rem 2rem;
+		}
+		.main_content {
+			margin: 0rem 2rem 4rem;
+			gap: 0.7rem;
+		}
+		.hero {
+			margin: 5rem 2rem;
+		}
+	}
+
 	@media (max-width: 900px) {
+		.apod_card {
+			height: 300px;
+		}
 		.main_content {
 			grid-template-columns: 1fr 1fr;
+			grid-template-areas:
+				"left center"
+				"right1 right2";
+			margin: 0rem 1rem 5rem;
+		}
+		.title_section {
+			margin: 2rem 1rem;
+			flex-direction: column;
+			gap: 0.5rem;
+			align-items: flex-start;
+		}
+		.hero {
+			margin: 3rem 1rem;
+		}
+		.middle_space h1 {
+			font-size: 3rem;
+			margin: 1rem 1rem;
+		}
+		.middle_space p,
+		.middle_space a {
+			margin: 1rem 1rem;
 		}
 	}
-	@media (max-width: 600px) {
+
+	@media (max-width: 700px) {
+
+		.hero {
+			display: flex;
+			align-items: center	;
+		}
+
+		.hero p {
+			text-align: center;
+			font-size: 0.9rem;
+		}
+
 		.main_content {
 			grid-template-columns: 1fr;
+			grid-template-areas:
+				"left"
+				"center"
+				"right1"
+				"right2";
+			margin: 0rem 0.5rem 1.5rem;
 		}
 		.apod_card {
-			height: 220px;
+			height: 180px;
+		}
+		.title_section h1 {
+			font-size: 3rem;
+		}
+		.title_section p {
+			font-size: 0.8rem;
+		}
+		.hero h1 {
+			font-size: 2.2rem;
+		}
+		.middle_space h1 {
+			font-size: 2rem;
 		}
 	}
+
+	@media (max-width: 500px) {
+		.hero {
+			margin: 2rem 0.3rem;
+		}
+		.hero h1 {
+			font-size: 1.3rem;
+		}
+		.hero p {
+			font-size: 0.6rem;
+		}
+		.title_section {
+			margin: 1rem 0.3rem;
+		}
+		.title_section h1 {
+			font-size: 1.2rem;
+		}
+		.title_section p {
+			font-size: 0.8rem;
+		}
+		.main_content {
+			margin: 0rem 0.2rem 1rem;
+			gap: 0.3rem;
+		}
+		.apod_card {
+			height: 110px;
+		}
+		.apod_title {
+			font-size: 0.9rem;
+		}
+		.apod_info {
+			padding: 0.5rem;
+		}
+		.middle_space h1 {
+			font-size: 1.1rem;
+			margin: 0.5rem 0.3rem;
+		}
+		.middle_space p,
+		.middle_space a {
+			font-size: 0.7rem;
+			margin: 0.5rem 0.3rem;
+		}
+	}
+
 </style>
