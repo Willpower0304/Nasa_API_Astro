@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About">
+    <main>
+        <div class="nav_hero">
+            <Navbar />
+            <div class="hero">
+                <h1>About Us</h1>
+                <p>NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.
+                </p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="btn_list">
+                <button>NASA Today</button>
+                <button>Looking Forward</button>
+                <button>A History of Innovation</button>
+            </div>
+            <hr>
+            <div class="content_info">
+                <div class="content_info_left">
+                    <h1>Title</h1>
+                    <p>Description</p>
+                </div>
+                <div class="content_info_right">
+                    <img src="" alt="">
+                    <p>image description</p>
+                </div>
+            </div>
+        </div>
+        <Footer />
+    </main>
+</Layout>
+
+<style>
+    .nav_hero {
+		height: 100vh;
+		background-image: url(../assets/bg4.png);    
+        background-size: cover;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+    .hero {
+        color: white;
+        align-content: center;
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0rem 4rem;
+    }
+
+    .hero h1 {
+        font-family: 'Roboto-Bold', sans-serif;
+        font-size: 5rem;
+        margin: 0;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        max-width: 70ch;
+        margin-top: 0.3rem;
+        color: rgb(231, 231, 231);
+        max-width: 50ch;
+        line-height: 1.5rem;
+    }
+
+    .hero a {
+        font-family: 'Roboto-Bold', sans-serif;
+        font-size: 1.5rem;
+        color: white;
+        text-decoration: none;
+        max-width: fit-content;
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+        background-color: rgb(212, 42, 0);
+        padding: 0.7rem 1.5rem;
+        transition: background-color 0.3s;
+        margin: 1rem 0rem;
+    }
+
+    .hero a:hover {
+        background-color: rgb(165, 0, 0);
+    }
+
+    .content {
+        margin: 4rem 4rem;
+    }
+
+    .content .btn_list {
+        display: flex;
+        gap: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .content .btn_list button {
+        font-family: 'Roboto-Bold', sans-serif;
+        font-size: 1.25rem;
+        color: rgb(0, 0, 0);
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+</style>
