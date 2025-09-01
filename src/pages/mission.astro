@@ -4,9 +4,15 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import RightArrow from '../assets/right.svg';
 
+// API fetching
 const API_KEY = import.meta.env.NASA_API_KEY || "DEMO_KEY";
 const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=4`);
 const apods = await res.json();
+
+// Cloudinary settings
+const CloudName = import.meta.env.CLOUD_NAME;
+const optimize = (url: string): string => 
+  `https://res.cloudinary.com/${CloudName}/image/fetch/${url}`;
 ---
 
 <Layout title="Mission">
@@ -25,14 +31,19 @@ const apods = await res.json();
 		</div>
 
 		<div class="main_content">
-			{apods && Array.isArray(apods) && apods.map(apod => (
-				<div class="apod_card" style={`background-image: url('${apod.url}');`}>
-					<div class="apod_overlay"></div>
-					<div class="apod_info">
-						<span class="apod_date">{apod.date}</span>
-						<h2 class="apod_title">{apod.title}</h2>
-					</div>
+			{apods && apods.map(apod => (
+			<div class="apod_card">
+				<img
+				src={optimize(apod.url)}
+				alt={apod.title}
+				loading="lazy"
+				/>
+				<div class="apod_overlay"></div>
+				<div class="apod_info">
+				<span class="apod_date">{apod.date}</span>
+				<h2 class="apod_title">{apod.title}</h2>
 				</div>
+			</div>
 			))}
 		</div>
 
@@ -51,7 +62,7 @@ const apods = await res.json();
 <style>
     .top_space {
 		height: 98vh;
-		background-image: url(../assets/bg2.png);
+		background-image: url(../assets/bg2.webp);
 		background-size: cover;
 		background-position: center;
 		display: flex;
@@ -181,7 +192,7 @@ const apods = await res.json();
 	}
 
 	.middle_space {
-		background-image: url(../assets/bg3.jpg);
+		background-image: url(../assets/bg3.webp);
 		background-size: cover;
 		background-position: center;
 		height: 100vh;
