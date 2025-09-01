@@ -12,7 +12,7 @@ const apods = await res.json();
 // Cloudinary settings
 const CloudName = import.meta.env.CLOUD_NAME;
 const optimize = (url: string): string => 
-  `https://res.cloudinary.com/${CloudName}/image/fetch/${url}`;
+  `https://res.cloudinary.com/${CloudName}/image/fetch/f_auto,q_auto,w_800/${url}`;
 ---
 
 <Layout title="Mission">
