@@ -51,7 +51,7 @@ const apods = await res.json();
 <style>
     .top_space {
 		height: 98vh;
-		background-image: url(../assets/bg2.jpg);
+		background-image: url(../assets/bg2.png);
 		background-size: cover;
 		background-position: center;
 		display: flex;
@@ -251,12 +251,17 @@ const apods = await res.json();
 			height: 300px;
 		}
 		.main_content {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 2fr 2fr;
 			grid-template-areas:
 				"left center"
 				"right1 right2";
 			margin: 0rem 1rem 5rem;
 		}
+
+		.apod_card:nth-child(1), .apod_card:nth-child(2) {
+			height: 300px;
+		}
+		
 		.title_section {
 			margin: 2rem 1rem;
 			flex-direction: column;
@@ -295,8 +300,14 @@ const apods = await res.json();
 				"center"
 				"right1"
 				"right2";
-			margin: 0rem 0.5rem 1.5rem;
+			margin: 3rem 0.5rem 5rem;
+			gap: 1.5rem;
 		}
+
+		.apod_card:nth-child(1), .apod_card:nth-child(2), .apod_card:nth-child(3), .apod_card:nth-child(4) {
+			height: 300px;
+		}
+
 		.apod_card {
 			height: 180px;
 		}
@@ -328,7 +339,7 @@ const apods = await res.json();
 			height: auto;
 		}
 		.hero {
-			margin: 4rem 0rem;
+			margin: 7rem 0rem;
 		}
 
 		.hero p {
@@ -351,7 +362,7 @@ const apods = await res.json();
 		}
 		.main_content {
 			margin: 0rem 1rem 3rem;
-			gap: 0.3rem;
+			gap: 1rem;
 		}
 		.apod_card {
 			height: 110px;
@@ -368,7 +379,7 @@ const apods = await res.json();
 			text-align: center;
 			justify-content: center;
 			align-items: center;
-			padding: 3rem 0rem;
+			padding: 7rem 0rem;
 		}
 
 		.middle_space h1 {
