@@ -10,9 +10,9 @@ const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&
 const apods = await res.json();
 
 // Cloudinary settings
-const CloudName = import.meta.env.CLOUD_NAME;
+const API_CLOUDINARY = import.meta.env.CLOUD_NAME;
 const optimize = (url: string): string => 
-  `https://res.cloudinary.com/${CloudName}/image/fetch/f_auto,q_auto,w_800/${url}`;
+  `https://res.cloudinary.com/${API_CLOUDINARY}/image/fetch/f_auto,q_auto,w_800/${url}`;
 ---
 
 <Layout title="Mission">
