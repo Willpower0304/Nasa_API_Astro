@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import RightArrow from '../assets/right.svg';
 
 const API_KEY = import.meta.env.NASA_API_KEY || "DEMO_KEY";
-const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=4`);
+const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=4&thumbs=true`);
 const apods = await res.json();
 
 ---
@@ -26,15 +26,23 @@ const apods = await res.json();
 		</div>
 
 		<div class="main_content">
-			{apods && Array.isArray(apods) && apods.map(apod => (
-				<div class="apod_card" style={`background-image: url('${apod.url}');`}>
-					<div class="apod_overlay"></div>
-					<div class="apod_info">
-						<span class="apod_date">{apod.date}</span>
-						<h2 class="apod_title">{apod.title}</h2>
-					</div>
-				</div>
-			))}
+			{apods && Array.isArray(apods) && apods.map(apod => {
+                const bg = apod.media_type === 'image' ? apod.url : (apod.thumbnail_url || '');
+                return (
+                    <a
+                        class="apod_card"
+                        href={`/info?date=${encodeURIComponent(apod.date)}`}
+                        aria-label={`Open details for ${apod.title}`}
+                        style={bg ? `background-image: url('${bg}');` : undefined}
+                    >
+                        <div class="apod_overlay"></div>
+                        <div class="apod_info">
+                            <span class="apod_date">{apod.date}</span>
+                            <h2 class="apod_title">{apod.title}</h2>
+                        </div>
+                    </a>
+                );
+            })}
 		</div>
 
 		<div class="middle_space">
@@ -109,6 +117,10 @@ const apods = await res.json();
     		"left center right2";
 		gap: 1rem;
 		margin: 0rem 4rem 7rem;
+	}
+
+	.main_content a {
+		text-decoration: none;
 	}
 
 	

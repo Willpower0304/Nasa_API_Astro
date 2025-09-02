@@ -1,0 +1,76 @@
+---
+export const prerender = false; 
+
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const API_KEY = import.meta.env.NASA_API_KEY || "DEMO_KEY";
+const date = Astro.url.searchParams.get('date');
+
+let apod = null;
+let error = null;
+
+if (date) {
+  try {
+    const r = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}&thumbs=true`);
+    if (!r.ok) throw new Error(`NASA API error: ${r.status}`);
+    apod = await r.json();
+  } catch (e) {
+    error = (e as Error).message;
+  }
+} else {
+  error = 'Falta el parámetro "date" en la URL ';
+}
+---
+
+<Layout title={apod ? apod.title : "Info"}>
+  <main>
+    <Navbar />
+    <div class="Main_content">
+      {error ? (
+        <>
+          <h1>APOD</h1>
+          <p>{error}</p>
+        </>
+      ) : (
+        apod && (
+          <>
+            <h1>{apod.title}</h1>
+            <p><strong>Date:</strong> {apod.date}</p>
+
+            {apod.media_type === 'image' ? (
+              <img src={apod.hdurl || apod.url} alt={apod.title} loading="eager" />
+            ) : (
+              <div>
+                <iframe
+                  src={apod.url}
+                  title={apod.title}
+                  allowfullscreen
+                  loading="eager"
+                  style="width:100%;aspect-ratio:16/9;border:0;"
+                ></iframe>
+              </div>
+            )}
+
+            <p>{apod.explanation}</p>
+
+            <ul>
+              <li><strong>Media type:</strong> {apod.media_type}</li>
+              {apod.copyright && (
+                <li><strong>Copyright:</strong> {apod.copyright}</li>
+              )}
+              {apod.hdurl && (
+                <li><strong>HD:</strong> <a href={apod.hdurl} target="_blank" rel="noopener noreferrer">Open HD image</a></li>
+              )}
+              {apod.service_version && (
+                <li><strong>Service version:</strong> {apod.service_version}</li>
+              )}
+            </ul>
+          </>
+        )
+      )}
+    </div>
+    <Footer />
+  </main>
+</Layout>
