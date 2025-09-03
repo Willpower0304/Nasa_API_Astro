@@ -28,15 +28,12 @@ A lightweight web app built with Astro that displays real-time astronomical data
 #### APIs
 - NASA Open APIs - Astronomical data source
 
-
-
 ## API Reference
 
 #### Base URL
+https://api.nasa.gov/
 
-```http
-  https://api.nasa.gov/
-```
+
 
 #### Authentication
 ##### All requests require an API key. Use either:
