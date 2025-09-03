@@ -5,8 +5,42 @@ import Footer from '../components/Footer.astro';
 import RightArrow from '../assets/right.svg';
 
 const API_KEY = import.meta.env.NASA_API_KEY || "DEMO_KEY";
-const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=4&thumbs=true`);
-const apods = await res.json();
+
+const TARGET_COUNT = 4;         
+const BATCH_SIZE   = TARGET_COUNT * 3; 
+const MAX_ATTEMPTS = 5;         
+
+function isStillImage(apod: any) {
+  if (apod?.media_type !== 'image') return false;
+  const url = apod.hdurl || apod.url || '';
+  return /\.(jpe?g|png)$/i.test(url);
+}
+
+async function fetchImageApods(target = TARGET_COUNT) {
+  const results = [];
+  const seen = new Set(); 
+  let attempts = 0;
+
+  while (results.length < target && attempts < MAX_ATTEMPTS) {
+    attempts++;
+    const res = await fetch(
+      `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=${BATCH_SIZE}&thumbs=true`
+    );
+    if (!res.ok) break;
+    const batch = await res.json();
+
+    for (const apod of batch) {
+      if (isStillImage(apod) && !seen.has(apod.date)) {
+        seen.add(apod.date);
+        results.push(apod);
+        if (results.length >= target) break;
+      }
+    }
+  }
+  return results.slice(0, target);
+}
+
+const apods = await fetchImageApods(TARGET_COUNT);
 
 ---
 
@@ -27,7 +61,7 @@ const apods = await res.json();
 
 		<div class="main_content">
 			{apods && Array.isArray(apods) && apods.map(apod => {
-                const bg = apod.media_type === 'image' ? apod.url : (apod.thumbnail_url || '');
+                const bg = apod.hdurl || apod.url;
                 return (
                     <a
                         class="apod_card"
